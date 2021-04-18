@@ -1,7 +1,7 @@
 import AspectRatio from 'react-aspect-ratio'; 
 import React, { useState } from 'react';
 
-import { DivBackground, }  from './styles';
+import { ButtonFace, ButtonPile, DivBackground }  from './styles';
 
 type ProjectCardProps = {
     title: string
@@ -17,7 +17,7 @@ const toggleFace = (x: Face) => {
 }
 
 function ProjectCard({ title }: ProjectCardProps) {
-    const [face, setFace] = useState(Face.Face);
+    const [face, setFace] = useState(Face.Face)
     return (
       
             <DivBackground>
@@ -27,22 +27,23 @@ function ProjectCard({ title }: ProjectCardProps) {
                 <div style={{ width: '100%', display: 'flex' }}>
 
                     <div style={{ width: '50%' }}>
-                    {title}
+                        {title}
                     </div>
 
                     <div style={{ width: '50%' }}>
-                        <button onClick={() => setFace(toggleFace(face))}>
-                            {(face === Face.Face) ? 'Clic' : 'Clac'}
-                            <img src = "" />
-                            </button>
+                        
+                        {face === Face.Face
+                            ? <ButtonFace onClick={() => setFace(toggleFace(face))} />
+                            : <ButtonPile onClick={() => setFace(toggleFace(face))} />
+                        }
                     </div>
 
                 </div>
             </DivBackground>
 
-      );
+    );
 }
-
+//{(face === Face.Face) ? 'Clic' : 'Clac'}
 export default ProjectCard;
 /*
 <AspectRatio ratio="0.5" style={{  maxWidth: '400px', backgroundImage: 'url("./ProjectCardDefaultImage.jpg")' }}>
