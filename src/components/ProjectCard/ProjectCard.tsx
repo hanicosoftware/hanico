@@ -1,33 +1,40 @@
 import AspectRatio from 'react-aspect-ratio'; 
-import React from 'react';
+import React, { useState } from 'react';
 
 import { DivBackground, }  from './styles';
-
 
 type ProjectCardProps = {
     title: string
 }
 
-const clickButton = () => {
-    console.log('toto b');
+enum Face {
+    Pile,
+    Face
 }
 
+const toggleFace = (x: Face) => {
+    return (x === Face.Pile) ? Face.Face : Face.Pile
+}
 
 function ProjectCard({ title }: ProjectCardProps) {
+    const [face, setFace] = useState(Face.Face);
     return (
       
             <DivBackground>
-                <div>{title} </div>
+
                 
 
                 <div style={{ width: '100%', display: 'flex' }}>
 
                     <div style={{ width: '50%' }}>
-                        TEXT en Bas
+                    {title}
                     </div>
 
                     <div style={{ width: '50%' }}>
-                        <button onClick={clickButton}>Clic</button>
+                        <button onClick={() => setFace(toggleFace(face))}>
+                            {(face === Face.Face) ? 'Clic' : 'Clac'}
+                            <img src = "" />
+                            </button>
                     </div>
 
                 </div>
