@@ -67,4 +67,5 @@ align-items: center;
 export const Title = styled.div`
 margin-left: 156px;
 font-size: 24px;
+text-decoration: none;
 `; 

@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Switch } from "react-router-dom"
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import HomeScreen from './Screens/HomeScreen/HomeScreen';
+
+class Index extends Component {
+  state = {}
+  render() {
+    return (
+      <BrowserRouter>
+       <Switch>
+          <Route path="/" exact={true}>
+            <App></App>
+          </Route>
+          <Route path="/HomeScreen">
+           <HomeScreen></HomeScreen> 
+          </Route>
+       </Switch>
+      </BrowserRouter>
+
+
+    );
+  }
+}
+
+
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Index />,
   document.getElementById('root')
 );
 

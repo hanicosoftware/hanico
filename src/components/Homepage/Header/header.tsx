@@ -1,5 +1,6 @@
 import React from 'react';
 import { SiteHeader,SiteHeaderSection,Title, About, Apps, Contact } from "./styles";
+import { Link } from 'react-router-dom'
 
 
 const Header = () => {
@@ -7,7 +8,9 @@ const Header = () => {
     return (
         <SiteHeader>
         <SiteHeaderSection>
-        <Title>HA.NI.CO</Title> 
+            <Link to="/">
+                <Title>HA.NI.CO</Title> 
+             </Link>
         </SiteHeaderSection>
 
         <SiteHeaderSection>
